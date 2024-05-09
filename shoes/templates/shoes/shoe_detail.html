@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{#    <img src="{% static 'shoes/image/'|add:shoe_details.photo%}">#}
+     <img src="{{ MEDIA_URL }}{{ shoe_details.photo }}">
+     <p>brand:{{ shoe_details.brand}}</p>
+     <p>property:{{ shoe_details.property}}</p>
+     <p>price:{{ shoe_details.price}}T</p>
+     <p>color:{{ shoe_details.color}}</p>
+     <p>gender:{{ shoe_details.gender }}</p>
+     <p>kind:{{ shoe_details.kind.name}}</p>
+     <p>Discription:{{ shoe_details.discription }}</p>
+     <p>size:</p>
+     {% for i in shoe_details.size.all %}
+         {{ i.range }}
+{#         <div>#}
+{#         &nbsp;#}
+{#         <p>_</p>#}
+{#         </div>#}
+
+     {% endfor %}
+
+
+
+</body>
+</html>

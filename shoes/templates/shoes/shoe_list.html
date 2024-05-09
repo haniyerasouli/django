@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>first</title>
+</head>
+<body>
+     <h1>welcome</h1>
+         {% for shoe_record in shoe_records %}
+             <a href="{{ shoe_record.slug }}">{{ shoe_record.brand }}</a>
+             <img src="{{ MEDIA_URL }}{{ shoe_record.photo }}">
+                <p>brand:{{ shoe_record.brand }}</p>
+     {% endfor %}
+</body>
+</html>
