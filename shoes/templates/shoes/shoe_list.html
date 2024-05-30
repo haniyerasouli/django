@@ -1,15 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>first</title>
-</head>
-<body>
-     <h1>welcome</h1>
-         {% for shoe_record in shoe_records %}
-             <a href="{{ shoe_record.slug }}">{{ shoe_record.brand }}</a>
-             <img src="{{ MEDIA_URL }}{{ shoe_record.photo }}">
-                <p>brand:{{ shoe_record.brand }}</p>
-     {% endfor %}
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+{% block tite_page %}
+	محصولات
+{% endblock %}
+{% block content_page %}
+    <link rel="stylesheet" href="{% static 'shoes/shoe_list.css' %}">
+        <p id="p">محصولات</p>
+    <br><br>
+
+         {% for shoe_record in shoe_record %}
+             <div id="list">
+
+                 <div id="container">
+                    <img id="image" src="{{ MEDIA_URL }}{{ shoe_record.photo }}">
+                 </div>
+{#                <p id="brand">{{ shoe_record.brand }}:برند</p>#}
+{#                <a id="brand" style="text-decoration-line: none" href="{{ shoe_record.slug }}">{{ shoe_record.brand }}</a>#}
+                  <a id="brand" style="text-decoration-line: none" href="{% url 'viewShoedetail' shoe_record.slug shoe_record.id  %}">{{ shoe_record.brand }}</a>
+             </div>
+
+         {% endfor %}
+
+
+{% endblock %}

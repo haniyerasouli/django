@@ -17,14 +17,23 @@ Including another URLconf
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
+from django.contrib.auth import views as auth_views
+from djangoProject3 import settings, views
 
-from djangoProject3 import settings
 
 urlpatterns = [
+    path('',views.viewhome,name='viewhome'),
     path('admin/', admin.site.urls),
     path('shoe/',include('shoes.urls')),
-    path('shop/', include('learns.urls')),
     path('account/',include('accounts.urls')),
+    path('reset_password/',auth_views.PasswordResetView.as_view(),name='reset_password_form'),
+    path('reset-password_sent/',auth_views.PasswordResetDoneView.as_view(),name='password_reset_done'),
+    path('reset/<uidb64>/<token>',auth_views.PasswordResetConfirmView.as_view(),name='password_reset_confirm'),
+    path('reset_compelete/',auth_views.PasswordResetCompleteView.as_view(),name='password_reset_complate'),
+    path('cart/',include('carts.urls')),
+
+
+
 ]
 
 

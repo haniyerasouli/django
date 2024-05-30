@@ -1,0 +1,18 @@
+
+
+              <img src="{{ MEDIA_URL }}{{ shoe.photo }}" class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">{{ shoe.brand }}</h5>
+                <p class="card-text">{{ shoe.property}}</p>
+              </div>
+              <ul class="list-group list-group-flush">
+        >
+                <li class="list-group-item">قیمت: {{ shoe.price }}تومان</li>
+                  <li class="list-group-item">جنس: {{ shoe.kind.name}}</li>
+                <li class="list-group-item">رنگ: {{ shoe.color }}</li>
+                  <li class="list-group-item"> جنسیت:{{ shoe.gender}}</li>
+
+
+              </ul>
+
+

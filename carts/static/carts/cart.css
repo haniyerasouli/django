@@ -1,0 +1,21 @@
+#container{
+    display: inline-block;
+
+     margin-right: 10px;
+
+
+}
+
+.card{
+    position: absolute;
+    text-align: right;
+    top: 100px;
+    left: 950px;
+}
+
+
+#text{
+    position: absolute;
+    right: 500px;
+    top:300px;
+}

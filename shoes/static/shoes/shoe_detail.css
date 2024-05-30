@@ -1,0 +1,97 @@
+
+/*#container{*/
+/*      position: absolute;*/
+/*      right: 500px;*/
+/*      top:100px;*/
+/*      width: 300px;*/
+/*      height: 300px;*/
+/*      bottom: 1000px;*/
+/*      background: linear-gradient(145deg, #d9ebee, #ffffff);*/
+/*      border:5px solid #e0959f;*/
+/*      box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);*/
+/*      border-radius: 10px;*/
+/*      overflow: hidden;*/
+
+/*}*/
+
+
+
+/*#image{*/
+/*     text-align: center;*/
+/*     width: 100%;*/
+/*     height: auto;*/
+/*     object-fit: cover;*/
+
+
+/*}*/
+
+/*.image:hover {*/
+/*    transform: perspective(400px) rotateY(180deg);*/
+/*}*/
+
+/*#text{*/
+/*    position: absolute;*/
+/*    right: 50px;*/
+/*    top: 300px;*/
+/*    text-align: right;*/
+/*    font-family: 'Lucida Grande', Arial, sans-serif;*/
+/*}*/
+
+/*#btn {*/
+/*    position: absolute;*/
+/*    top: 500px;*/
+/*    right: 300px;*/
+/*    padding: 10px 20px;*/
+/*    background-color: #e0959f;*/
+/*    color: white;*/
+/*    border: none;*/
+/*    border-radius: 5px;*/
+/*    font-size: 16px;*/
+/*    cursor: pointer;*/
+/*    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);*/
+/*  }*/
+/*#btn:hover {*/
+/*    background-color: #2980b9;*/
+/*  }*/
+#add_cart{
+    position: absolute;
+    right: 400px;
+    width:150px;
+    height: 60px;
+    bottom: 20px;
+    top: 630px;
+    background-image: linear-gradient(200deg, #ffabb7, #dc4393);
+    border-radius: 6px;
+    color: #efe4db;
+    animation: buble 1.5s linear 15ms infinite;
+    font-family: 'Lucida Grande', Arial, sans-serif;
+}
+
+@keyframes bubble {
+    0%, 100% {
+        transform: scale(0.97);
+    }
+    50%{
+        transform: scale(1.07);
+    }
+
+}
+
+.card{
+    position: absolute;
+    text-align: right;
+    top: 100px;
+    right: 50px;
+}
+
+
+.card_body{
+    text-align: right;
+}
+
+#discription{
+    /*position: absolute;*/
+    /*right: 20px;*/
+    /*top:435px;*/
+    text-align: right;
+}

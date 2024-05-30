@@ -1,7 +1,15 @@
-from django.urls import path
+from django.urls import path, re_path
 
-from shoes import views
+from .import views
 
-urlpatterns=[ path('',views.viewShoe,name='viewShoe'),
-    path('<slug:s>',views.viewShoedetail,name='viewShoedetail'),
-              ]
+# تععین مسیر url هر یک از ویو های اپ shoes
+urlpatterns=[
+
+              path('shoe/',views.viewShoe,name='viewShoe'),
+              # path('shoe/<slug:s>/<int:shoe_id>/',views.viewShoedetail,name='viewShoedetail'),
+              path('shoe/<slug:s>/<int:pk>/', views.viewShoedetail,name='viewShoedetail'),
+
+
+
+    ]
+

@@ -1,5 +1,17 @@
+
+
+from django.contrib.auth.models import User
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.template.defaultfilters import slugify
+from django.db import connection
+
+from unidecode import unidecode
+
+
+#----تابع get_slug  برای فارسی ایجاد اسلاگ برای زبان فارسی
+def get_slug(text):
+    return slugify(unidecode(text))
 
 
 # Create your models here.
@@ -34,10 +46,10 @@ class Size(models.Model):
 #--------kind model
 class Kind(models.Model):
     name=models.CharField(max_length=50,verbose_name='جنس رویه')
-    slug=models.SlugField(default='',null=False,db_index=True,verbose_name='اسلاگ در url')
+    slug=models.CharField(max_length=25,default='',unique=True,null=False,db_index=True,verbose_name='اسلاگ در url')
     
     def save(self,*args,**kwargs):
-        self.slug=slugify(self.name)
+        self.slug=get_slug(self.name)
         super().save(*args,**kwargs)
 
     def __str__(self):
@@ -47,11 +59,13 @@ class Kind(models.Model):
         verbose_name_plural = 'جنس های رویه'
 
 
+
+
+
 class Shoe(models.Model):
     brand = models.CharField(max_length=30, verbose_name='برند')
     property=models.CharField(max_length=30,verbose_name='ویژگی')
     color=models.CharField(max_length=30,verbose_name='رنگ')
-    production_date=models.DateField()
     kind=models.ForeignKey(Kind,on_delete=models.CASCADE,null=True,blank=True,verbose_name='جنس رویه')
     # price=models.DecimalField(max_digits=8,decimal_places=2,verbose_name='قیمت')
     price=models.IntegerField(null=True,blank=True,verbose_name='قیمت')
@@ -60,13 +74,12 @@ class Shoe(models.Model):
     # speces=models.FileField(upload_to='files/shoes')
     photo=models.ImageField(upload_to='files/shoes',verbose_name='عکس')
     gender=models.CharField(max_length=10,verbose_name='جنسیت')
-    slug=models.SlugField(default='',null=False,db_index=True,verbose_name='اسلاگ در url')
-
-
+    slug=models.CharField(max_length=50,default='',null=False,db_index=True,verbose_name='اسلاگ در url')
+    id=models.AutoField(primary_key=True)
 
 
     def save(self,*args,**kwargs):
-        self.slug=slugify(self.property+'_'+self.brand+'-'+self.color+'_'+self.gender)
+        self.slug=get_slug(self.property+'_'+self.brand+'-'+self.color+'_'+self.gender)
         super().save(*args,**kwargs)
 
     def __str__(self):
@@ -75,3 +88,9 @@ class Shoe(models.Model):
     class Meta:
         verbose_name = 'کفش'
         verbose_name_plural = 'کفش ها'
+
+
+
+
+
+
